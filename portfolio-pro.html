@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:linear-gradient(135deg,#000000,#1a0000,#330000);
+  color:white;
+  overflow-x:hidden;
+}
+
+/* Big Background Images */
+.bg-ai{
+  position:fixed;
+  width:700px;
+  opacity:0.05;
+  z-index:-1;
+  animation:floatBg 15s infinite ease-in-out;
+}
+
+.bg1{ top:5%; left:-10%; }
+.bg2{ bottom:0; right:-10%; animation-delay:5s; }
+
+@keyframes floatBg{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-60px);}
+  100%{transform:translateY(0);}
+}
+
+/* Navbar */
+nav{
+  position:fixed;
+  width:100%;
+  padding:20px 10%;
+  display:flex;
+  justify-content:space-between;
+  backdrop-filter:blur(10px);
+  background:rgba(255,0,0,0.05);
+  z-index:1000;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:20px;
+}
+
+nav a:hover{
+  color:#ff2a2a;
+}
+
+/* Sections */
+section{
+  min-height:100vh;
+  padding:140px 10%;
+  text-align:center;
+}
+
+/* Hero */
+.hero h1{
+  font-size:60px;
+  background:linear-gradient(90deg,#ff0000,#ff4d4d);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.typing{
+  margin-top:15px;
+  color:#ff4d4d;
+  font-size:22px;
+}
+
+/* Projects */
+.projects{
+  display:flex;
+  flex-wrap:wrap;
+  gap:40px;
+  justify-content:center;
+}
+
+.project{
+  width:300px;
+  background:rgba(255,0,0,0.07);
+  padding:20px;
+  border-radius:15px;
+  transition:0.4s;
+  border:1px solid rgba(255,0,0,0.2);
+  text-decoration:none;
+  color:white;
+  display:block;
+}
+
+.project:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 40px rgba(255,0,0,0.4);
+}
+
+/* Project Page */
+.project-page{
+  background:#0d0000;
+  border-top:3px solid red;
+}
+
+/* Back Button */
+.back{
+  margin-top:30px;
+  display:inline-block;
+  padding:10px 20px;
+  background:#ff0000;
+  border-radius:30px;
+  text-decoration:none;
+  color:white;
+}
+
+.back:hover{
+  box-shadow:0 0 15px red;
+}
+
+@media(max-width:768px){
+  .hero h1{font-size:35px;}
+  .projects{flex-direction:column;align-items:center;}
+  .bg-ai{width:450px;}
+}
+</style>
+</head>
+
+<body>
+
+<img src="https://images.unsplash.com/photo-1677442136019-21780ecad995" class="bg-ai bg1">
+<img src="https://images.unsplash.com/photo-1518770660439-4636190af475" class="bg-ai bg2">
+
+<nav>
+  <div><strong>AI Portfolio</strong></div>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#projects">Projects</a>
+  </div>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="hero">
+  <h1>Hello, I'm Sandesh 👋</h1>
+  <div class="typing"></div>
+</section>
+
+<!-- PROJECT LIST -->
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects">
+
+    <a href="#music" class="project">
+      <h3>Music Streaming App</h3>
+      <p>Advanced music player with playlist & animations.</p>
+    </a>
+
+    <a href="#fitness" class="project">
+      <h3>Fitness Website</h3>
+      <p>Professional gym website with BMI calculator.</p>
+    </a>
+
+    <a href="#eco" class="project">
+      <h3>Eco Campaign Site</h3>
+      <p>Parallax environmental awareness website.</p>
+    </a>
+
+  </div>
+</section>
+
+<!-- MUSIC PAGE -->
+<section id="music" class="project-page">
+  <h1>🎵 Music Streaming App</h1>
+  <p>This project includes:</p>
+  <ul>
+    <li>Upload Songs</li>
+    <li>Play / Pause / Stop</li>
+    <li>Progress Bar</li>
+  </ul>
+  <a href="#projects" class="back">⬅ Back to Projects</a>
+</section>
+
+<!-- FITNESS PAGE -->
+<section id="fitness" class="project-page">
+  <h1>🏋️ Fitness Website</h1>
+  <p>This project includes:</p>
+  <ul>
+    <li>Animated Hero</li>
+    <li>BMI Calculator</li>
+    <li>Transformation Gallery</li>
+  </ul>
+  <a href="#projects" class="back">⬅ Back to Projects</a>
+</section>
+
+<!-- ECO PAGE -->
+<section id="eco" class="project-page">
+  <h1>🌿 Eco Campaign</h1>
+  <p>This project includes:</p>
+  <ul>
+    <li>Parallax Background</li>
+    <li>Animated Counters</li>
+    <li>Donation Section</li>
+  </ul>
+  <a href="#projects" class="back">⬅ Back to Projects</a>
+</section>
+
+<script>
+const text="AI Developer | Machine Learning Enthusiast | Data Explorer";
+let i=0;
+function typing(){
+  if(i<text.length){
+    document.querySelector(".typing").innerHTML+=text.charAt(i);
+    i++;
+    setTimeout(typing,50);
+  }
+}
+typing();
+</script>
+
+</body>
+</html>
